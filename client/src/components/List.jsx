@@ -1,21 +1,17 @@
-import Item from './Item'
+import Item from './Item';
+import {useSelector} from 'react-redux';
 
 const List = () => {
 
-  const items = [
-    { id: 1, title: 'item1' },
-    { id: 2, title: 'item2' },
-		{ id: 3, title: 'item3' },
-		{ id: 4, title: 'item4' },
-		{ id: 5, title: 'item5' },
-	];
+	const items = useSelector((state) => state.items)
+
 
 	return (
-		<ul className='list-group'>
-			{items.map((item) => (
-				<Item id={item.id} title={item.title}  />
-			))}
-		</ul>
+		<div>
+				{items.map((item) => (
+					<Item id={item.id} text={item.text}  />
+				))}
+		</div>
 	);
 
 }

@@ -1,25 +1,28 @@
+import { useState } from 'react';
+import {useDispatch} from 'react-redux';
+import {addItem} from '../features/item/itemSlice';
 
+const AddItemForm = () => {
+const [value, setValue] = useState('');
 
-const AddItemForm = ({item, setItem, items, setItems}) => {
+const dispatch = useDispatch();
 
-    
 const handleSubmit = (event) => {
-  event.preventDefault();
-  const newItem = {
-    id: new Date().getTime(),
-    text: item,
-    };
-    setItems([...items].concat(newItem));
-    setItem("");
-
+    event.preventDefault();
+    dispatch(addItem({
+      text: value,
+    }))
+    setValue('');
 }
 
+
 return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="form-container">
         <input
           type="text"
-          onChange={(e) => setItem(e.target.value)}
-          value={item}
+          placeholder='Add element...'
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
         />
         <button type="submit">Add Item</button>
     </form>
