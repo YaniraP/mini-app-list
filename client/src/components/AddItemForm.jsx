@@ -1,21 +1,25 @@
 
-import { useState } from 'react';
 
-const AddItemForm = () => {
+const AddItemForm = ({item, setItem, items, setItems}) => {
 
-const [value, setValue] = useState('');
     
 const handleSubmit = (event) => {
   event.preventDefault();
-  setValue(value);
+  const newItem = {
+    id: new Date().getTime(),
+    text: item,
+    };
+    setItems([...items].concat(newItem));
+    setItem("");
+
 }
 
 return (
     <form onSubmit={handleSubmit}>
         <input
           type="text"
-          onChange={(e) => setValue(e.target.value)}
-          value={value}
+          onChange={(e) => setItem(e.target.value)}
+          value={item}
         />
         <button type="submit">Add Item</button>
     </form>
