@@ -17,7 +17,7 @@ const handleSubmit = (event) => {
 
 
 return (
-    <form onSubmit={handleSubmit} className="form-container">
+    <form onSubmit={handleSubmit} className="form-container"  role='main'>
         <input
           type="text"
           placeholder='Add element...'
