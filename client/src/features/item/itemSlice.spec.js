@@ -13,17 +13,12 @@ describe('item reducer', () => {
   text: 'item3'
 };
 
-
   it('should handle initial state', () => {
-    expect(itemReducer(undefined, { type: 'unknown' })).toEqual([{
-      id: 1,
-      text: 'item1',
-    }]);
+    expect(itemReducer(undefined, { type: 'unknown' })).toEqual([]);
   });
 
   it('should handle addItem', () => {
     const actual = itemReducer(initialState, addItem(newItem));
     expect(actual[2].text).toEqual('item3');
   });
-
  });

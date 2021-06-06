@@ -2,9 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const itemSlice = createSlice({
     name: 'items',
-    initialState: [
-       {id: 1, text: 'item1'}
-    ],
+    initialState: [],
     reducers: {
         addItem: (state, action) => {
             const newItem = {
