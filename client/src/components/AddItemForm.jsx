@@ -3,7 +3,7 @@ import {useDispatch} from 'react-redux';
 import {addItem} from '../features/item/itemSlice';
 
 const AddItemForm = () => {
-const [value, setValue] = useState('');
+const [value, setValue] = useState("");
 
 const dispatch = useDispatch();
 
@@ -15,17 +15,17 @@ const handleSubmit = (event) => {
     setValue('');
 }
 
-
 return (
-    <form onSubmit={handleSubmit} className="form-container"  role='main'>
+  <form onSubmit={handleSubmit} className="form-container"  role="main">
         <input
           type="text"
-          placeholder='Add element...'
+          placeholder="Add..."
           value={value}
+          required
           onChange={(e) => setValue(e.target.value)}
         />
-        <button type="submit">Add Item</button>
-    </form>
+        <button className="btn-form "type="submit">Add Item</button>
+  </form>
 )
 }
 

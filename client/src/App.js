@@ -1,6 +1,5 @@
 import React from 'react';
 
-import './App.css';
 import AddItemForm from './components/AddItemForm';
 import List from './components/List';
 
@@ -8,7 +7,7 @@ import List from './components/List';
 function App() {
   return (
     <div className="list">
-     <h1>LIST</h1>
+     <h1>MY LIST</h1>
      <AddItemForm />
      <List/>
     </div>

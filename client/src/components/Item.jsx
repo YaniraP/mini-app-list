@@ -20,26 +20,28 @@ const handleSubmitEdits = () => {
 }
 
 return (
-     <div  key={id} className="item">
-        <div className="item-text">
-          {id === itemEditing ? (
-              <input
-                type="text"
-                onChange={(e) => setEditingText(e.target.value)}
-              />
+  <div  key={id} className="item"  aria-label="item">
+    <div className="item-text">
+      {id === itemEditing ? (
+          <input
+            type="text"
+            required
+            onChange={(e) => setEditingText(e.target.value)}
+          />
+      ) : (
+          <div className="text">{text}</div>
+          
+      )}
+    </div>
+    <div className="item-actions">
+      { id === itemEditing ? (
+        <button onClick={handleSubmitEdits}>Submit Edits</button>
           ) : (
-              <div>{text}</div>
-          )}
-        </div>
-        <div className="item-actions">
-          { id === itemEditing ? (
-            <button onClick={handleSubmitEdits}>Submit Edits</button>
-              ) : (
-            <button onClick={() => setItemEditing(id)}>Edit</button>
-          )}
-        <button onClick={handleDeleteClick}>Delete</button>
-      </div>
-    </div>	
+        <button className="btn-edit" onClick={() => setItemEditing(id)}><i className="fa fa-edit" ></i></button>
+      )}
+    <button className="btn-delete" onClick={handleDeleteClick}><i className="fa fa-trash"></i></button>
+  </div>
+</div>	
 	);
 }
 
